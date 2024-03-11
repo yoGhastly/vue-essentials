@@ -1,0 +1,60 @@
+<template>
+  <h2>Counter</h2>
+  <p>{{ counter }} <sup>2</sup> = {{ squareCounter }}</p>
+
+  <div>
+    <button @click="add">+1</button>
+    <button @click="decrement">-1</button>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      counter: 5,
+    };
+  },
+  methods: {
+    getSquaredValue() {
+      return Math.pow(this.counter, 2);
+    },
+    add() {
+      this.counter++;
+    },
+    decrement() {
+      this.counter--;
+    },
+  },
+  computed: {
+    squareCounter() {
+      console.log("computed");
+      return Math.pow(this.counter, 2);
+    },
+    addComputed() {
+      return this.counter + 1;
+    },
+    decrementComputed() {
+      return this.counter - 1;
+    },
+  },
+};
+</script>
+
+<style>
+button {
+  background-color: #64db87;
+  border-radius: 5px;
+  border: 1px solid white;
+  cursor: pointer;
+  padding: 5px 15px;
+  transition: 0.3s ease-in-out;
+  color: white;
+  margin: 0 5px;
+}
+
+button:hover {
+  background-color: #5aa67b;
+  transition: 0.3s ease-in-out;
+}
+</style>
